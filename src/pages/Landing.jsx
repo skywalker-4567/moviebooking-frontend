@@ -24,8 +24,8 @@ export default function Landing() {
       const res = await getMovies(page);
       // Spring Boot paginated response shape:
       // { content: [...], totalPages: N, totalElements: N }
-      setMovies(res.data.content);
-      setTotalPages(res.data.totalPages);
+      setMovies(res.data.content ?? []);
+setTotalPages(res.data.totalPages ?? 1);
     } catch {
       setError('Failed to load movies');
     } finally {
