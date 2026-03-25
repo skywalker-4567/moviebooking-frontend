@@ -47,6 +47,7 @@ if (dates.length > 0) setSelectedDate(dates[0]);
   e.preventDefault();
   setSubmitting(true);
   try {
+    console.log('Submitting review:', { movieId: Number(id), ...reviewForm });
     await submitReview({ movieId: Number(id), ...reviewForm });
     const res = await getReviews(id);
     setReviews(Array.isArray(res.data) ? res.data : res.data.content ?? []);
